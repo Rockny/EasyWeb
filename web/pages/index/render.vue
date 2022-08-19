@@ -1,7 +1,7 @@
 
 <template>
   <div>
-   <lang></lang>
+    <lang></lang>
     <!-- <Search />
     <template v-if="indexData">
       <Slider :data="indexData[0].components" />
@@ -13,13 +13,13 @@
 
     <layout is-header="true" is-footer="true">
       <template v-slot:header>
-      <Header :data="i"></Header>
+        <Header :data="i"></Header>
       </template>
-        <template v-slot:main>
-      main
+      <template v-slot:main>
+        main {{ t('common.buttons.login') }} {{ t('common.title') }}
       </template>
-        <template v-slot:footer>
-      footer
+      <template v-slot:footer>
+        footer
       </template>
     </layout>
   </div>
@@ -32,13 +32,15 @@
 // import Rectangle from '@/components/rectangle/index.vue'
 // import Search from '@/components/search/index.vue'
 import lang from '@/components/lang/index.vue'
-import layout from '@/layouts/default/index.vue' 
+import layout from '@/layouts/default/index.vue'
 import Header from '@/layouts/default/header/index.vue'
 import { HeaderData } from '~/typings/data'
-var i:HeaderData[] =[{
-  id:"1",
-  title:'首页',
-  href:'#'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+var i: HeaderData[] = [{
+  id: "1",
+  title: '首页',
+  href: '#'
 }];
 
 // const indexData = mapState<IndexData>().indexStore.value.data

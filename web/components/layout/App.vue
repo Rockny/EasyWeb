@@ -11,7 +11,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/theme-chalk/index.css'
 import { ID_INJECTION_KEY } from 'element-plus'
 
-import i18n from '../../lang'
+import i18n from '../../locales'
 
 const props = defineProps<{
   ssrApp: App,

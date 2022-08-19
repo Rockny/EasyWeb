@@ -1,7 +1,6 @@
 import { createI18n } from 'vue-i18n'
 
-import zhCnLocal from './locales/zh-cn'
-import ennLocal from './locales/en'
+import  lang from "./lang/index";
 
 import zhCnEl from 'element-plus/lib/locale/lang/zh-cn'
 import enEl from 'element-plus/lib/locale/lang/en'
@@ -17,11 +16,11 @@ const i18n = createI18n({
   locale: store.get('lang') || 'zh-cn',
   messages: {
     'zh-cn': {
-      ...zhCnLocal,
+      ...lang.zhCh,
       ...zhCnEl
     },
     'en': {
-      ...ennLocal,
+      ...lang.en,
       ...enEl
     }
   }
