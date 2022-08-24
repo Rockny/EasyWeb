@@ -8,8 +8,13 @@ interface IApiService {
 interface ApiDeatilservice {
   index: (id: string) => Promise<Ddata>
 }
+interface LangService {
+  SetLang: (lang: string) => Promise<string>
+}
+
 
 export type Params = ParamsKoa<any, {
   apiService: IApiService
   apiDeatilservice: ApiDeatilservice
+  langService: LangService
 }>

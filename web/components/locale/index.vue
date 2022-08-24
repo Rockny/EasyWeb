@@ -2,14 +2,15 @@
     <onlyCsr>
         <el-dropdown>
             <span class="el-dropdown-lang">
-                {{ langData.title }}
+                {{ localeData.title }}
                 <el-icon class="el-icon--right">
                     <arrow-down />
                 </el-icon>
             </span>
             <template #dropdown>
                 <el-dropdown-menu>
-                    <el-dropdown-item v-for="item in langData.data" :disabled="currentLang===item.value" @click="changeLang(item)">{{ item.title }}
+                    <el-dropdown-item v-for="item in localeData.data" :disabled="currentLocale === item.value"
+                        @click="changeLocale(item)">{{ item.title }}
                     </el-dropdown-item>
                 </el-dropdown-menu>
             </template>
@@ -27,7 +28,7 @@ import { useI18n } from "vue-i18n";
 import { useStore } from 'vuex'
 
 //语言数据
-const langData = reactive({
+const localeData = reactive({
     title: '中文简体',
     data: [
         {
@@ -45,26 +46,24 @@ const store = useStore();
 
 //设置语言
 const setLang = (item: any) => {
-    store.dispatch('langStore/setLang', {
+    store.dispatch('localeStore/setLang', {
         payload: {
-            lang: item.value
+            locale: item.value
         }
     })
 }
 const { locale } = useI18n();
-
 // 当前语言
-const currentLang = ref<string>(locale.value);
-langData.title = langData.data.find(item => item.value === currentLang.value).title;
+const currentLocale =ref(locale.value);
+localeData.title = localeData.data.find(item => item.value === currentLocale.value).title
 
 //切换语言
-const changeLang = (lang: any) => {
-    langData.title = lang.title;
-    locale.value = lang.value;
-    currentLang.value=lang.value;
+const changeLocale = (lang: any) => {
+    localeData.title = lang.title;
+    //locale.value = lang.value;
+    currentLocale.value=lang.value;
     setLang(lang);
 }
-
 </script>
 <style scoped>
 .el-dropdown-lang {

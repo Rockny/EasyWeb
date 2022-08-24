@@ -16,16 +16,19 @@ import i18n from '../../locales'
 const props = defineProps<{
   ssrApp: App,
   reactiveFetchData: any,
-  asyncData: any
+  asyncData: any,
+  ctx?:any
 }>()
-
 const app = props.ssrApp;
 
 app.provide(ID_INJECTION_KEY, {
   prefix: Math.floor(Math.random() * 10000),
   current: 0,
 })
-var locale = i18n.global.messages.value[i18n.global.locale.value];
+
+var lang=props.ctx?.cookies.get('locale', { signed: false }) || i18n.global.locale.value;
+i18n.global.locale.value=lang;
+var locale =i18n.global.messages.value[lang];
 app.use(ElementPlus, { locale }).use(i18n)
 </script>
 

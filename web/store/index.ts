@@ -1,13 +1,13 @@
 import { indexStore } from './modules/index'
 import { detailStore } from './modules/detail'
 import { searchStore } from './modules/search'
-import { langStore } from './modules/lang'
+import { localeStore } from './modules/locale'
 
 const modules = {
   indexStore,
   detailStore,
   searchStore,
-  langStore
+  localeStore
 }
 export {
   modules

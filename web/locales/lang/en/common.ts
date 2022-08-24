@@ -5,5 +5,7 @@ export default {
     menus: {
       home: 'Home'
     },
-    title:"Hello World"
+    title:"Hello World",
+    test:"Test",
+    test2:"Test2"
   }
